@@ -108,7 +108,7 @@ export default function Navbar() {
           <Link to="/kitchen" style={navLink}>Home Appliances ⌄</Link>
           <Link to="/kitchen" style={navLink}>Kitchen Appliances ⌄</Link>
           <Link to="/ac" style={navLink}>Cooling ⌄</Link>
-          <Link to="/Bestdeals" style={navLink}>Brands</Link>
+          <Link to="/Brands" style={{ color: "#fff", textDecoration: "none" }}>Brands</Link>
           <Link to="/Bestdeals" style={{ ...navLink, color: "#f5c242" }}>🏷️ Offers</Link>
           <Link to="/contact" style={navLink}>Contact</Link>
         </div>

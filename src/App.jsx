@@ -5,8 +5,8 @@ import Footer from "./components/Footer";
 import Categorypage from "./components/Categorypage";
 import "./App.css";
 import EnquiryForm from "./components/EnquiryForm";
+import Brands from "./components/Brands";
 
-// ===== REAL IMAGES - FIXED =====
 const IMG = {
   tv: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600&q=80",
   ac: "/ac.jpg",
@@ -17,21 +17,15 @@ const IMG = {
   hero: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=900&q=80",
 };
 
-// ===== CART HELPER - KEPT FOR CART PAGE =====
 function addToCart(product) {
   const oldCart = JSON.parse(localStorage.getItem("sagar_cart") || "[]");
   const found = oldCart.find((i) => i.id === product.id);
-  if (found) {
-    found.qty += 1;
-  } else {
-    oldCart.push({ ...product, qty: 1 });
-  }
+  if (found) { found.qty += 1; } else { oldCart.push({ ...product, qty: 1 }); }
   localStorage.setItem("sagar_cart", JSON.stringify(oldCart));
   window.dispatchEvent(new Event("cartUpdated"));
   alert(`${product.name} Added to Cart!`);
 }
 
-// ===== CORRECT LOGO - YOUR logo.jpeg FROM public/ =====
 function SagarLogo({ size = 30 }) {
   return (
     <span style={{ display: "inline-flex", alignItems: "center", gap: "8px", verticalAlign: "middle" }}>
@@ -44,38 +38,18 @@ function SagarLogo({ size = 30 }) {
   );
 }
 
-// ===== CART PAGE =====
 function Cart() {
   const [cart, setCart] = useState(() => JSON.parse(localStorage.getItem("sagar_cart") || "[]"));
   const [promo, setPromo] = useState("");
   const [promoOff, setPromoOff] = useState(0);
-
-  const save = (newCart) => {
-    setCart(newCart);
-    localStorage.setItem("sagar_cart", JSON.stringify(newCart));
-    window.dispatchEvent(new Event("cartUpdated"));
-  };
-
-  const updateQty = (id, change) => {
-    save(cart.map(i => i.id === id ? { ...i, qty: Math.max(1, i.qty + change) } : i));
-  };
-
-  const removeItem = (id) => {
-    if (window.confirm("Remove this item from cart?")) {
-      save(cart.filter(i => i.id !== id));
-    }
-  };
-
-  const applyPromo = () => {
-    if (promo.toUpperCase() === "SAGAR500") { setPromoOff(500); alert("Promo Applied! ₹500 OFF"); }
-    else { setPromoOff(0); alert("Invalid Code. Try: SAGAR500"); }
-  };
-
+  const save = (newCart) => { setCart(newCart); localStorage.setItem("sagar_cart", JSON.stringify(newCart)); window.dispatchEvent(new Event("cartUpdated")); };
+  const updateQty = (id, change) => { save(cart.map(i => i.id === id ? { ...i, qty: Math.max(1, i.qty + change) } : i)); };
+  const removeItem = (id) => { if (window.confirm("Remove this item from cart?")) { save(cart.filter(i => i.id !== id)); } };
+  const applyPromo = () => { if (promo.toUpperCase() === "SAGAR500") { setPromoOff(500); alert("Promo Applied! ₹500 OFF"); } else { setPromoOff(0); alert("Invalid Code. Try: SAGAR500"); } };
   const totalMrp = cart.reduce((s, i) => s + i.mrp * i.qty, 0);
   const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
   const discount = totalMrp - subtotal;
   const total = subtotal - promoOff;
-
   if (cart.length === 0) {
     return (
       <div style={{ textAlign: "center", padding: "60px 20px" }}>
@@ -86,7 +60,6 @@ function Cart() {
       </div>
     );
   }
-
   return (
     <div style={{ maxWidth: 1100, margin: "0 auto", padding: 16, fontFamily: "Arial" }}>
       <h2 style={{ display: "flex", alignItems: "center", gap: 10 }}>Shopping Cart ({cart.length} items) <SagarLogo size={28} /></h2>
@@ -111,7 +84,6 @@ function Cart() {
           ))}
           <button onClick={() => { if (window.confirm("Clear all?")) save([]); }} style={{ background: "none", border: "none", color: "#666", cursor: "pointer", textDecoration: "underline" }}>Clear All Cart</button>
         </div>
-
         <div style={{ flex: 1, minWidth: 280, background: "#fff", border: "1px solid #eee", borderRadius: 12, padding: 20 }}>
           <h3 style={{ marginTop: 0, borderBottom: "1px solid #eee", paddingBottom: 10 }}>PRICE DETAILS</h3>
           <p style={{ display: "flex", justifyContent: "space-between" }}><span>Price ({cart.length} items)</span><span>₹{totalMrp.toLocaleString("en-IN")}</span></p>
@@ -152,16 +124,55 @@ function Home() {
     { id: 104, brand: "WHIRLPOOL", img: IMG.washer, name: "8 Kg Front Load Washer", price: 32990, mrp: 45990, priceText: "₹32,990", old: "₹45,990", off: "28% OFF", emi: "No Cost EMI" },
   ];
 
-  const brands = ["SAMSUNG", "SONY", "LG", "Whirlpool", "IFB", "BOSCH", "O'GENERAL", "BLUE STAR", "DAIKIN"];
+  // ✅ ALL 39 BRANDS - LOGO + SYMBOL COLOUR
+  const brands = [
+    { name: "SAMSUNG", logo: "https://logo.clearbit.com/samsung.com", color: "#1428a0" },
+    { name: "SONY", logo: "https://logo.clearbit.com/sony.com", color: "#000000" },
+    { name: "LG", logo: "https://logo.clearbit.com/lg.com", color: "#a50034" },
+    { name: "Whirlpool", logo: "https://logo.clearbit.com/whirlpool.com", color: "#004b8d" },
+    { name: "IFB", logo: "https://logo.clearbit.com/ifbappliances.com", color: "#e30613" },
+    { name: "BOSCH", logo: "https://logo.clearbit.com/bosch.com", color: "#e30613" },
+    { name: "O'GENERAL", logo: "https://logo.clearbit.com/ogeneral.in", color: "#0057b8" },
+    { name: "BLUE STAR", logo: "https://logo.clearbit.com/bluestarindia.com", color: "#0057b8" },
+    { name: "LLOYD", logo: "https://logo.clearbit.com/lloydindia.com", color: "#0072bc" },
+    { name: "VOLTAS", logo: "https://logo.clearbit.com/voltas.com", color: "#00a651" },
+    { name: "Haier", logo: "https://logo.clearbit.com/haier.com", color: "#003da5" },
+    { name: "Godrej", logo: "https://logo.clearbit.com/godrej.com", color: "#e4002b" },
+    { name: "Carrier", logo: "https://logo.clearbit.com/carrier.com", color: "#005da8" },
+    { name: "DAIKIN", logo: "https://logo.clearbit.com/daikin.com", color: "#0090da" },
+    { name: "TCL", logo: "https://logo.clearbit.com/tcl.com", color: "#e4002b" },
+    { name: "VU", logo: "https://logo.clearbit.com/vutvs.com", color: "#000000" },
+    { name: "acer", logo: "https://logo.clearbit.com/acer.com", color: "#83b81a" },
+    { name: "wybor", logo: "https://logo.clearbit.com/wybor.in", color: "#ff6b00" },
+    { name: "Crompton", logo: "https://logo.clearbit.com/crompton.co.in", color: "#e4002b" },
+    { name: "Prestige", logo: "https://logo.clearbit.com/ttkprestige.com", color: "#e4002b" },
+    { name: "Preethi", logo: "https://logo.clearbit.com/preethi.in", color: "#e4002b" },
+    { name: "BAJAJ", logo: "https://logo.clearbit.com/bajajelectricals.com", color: "#003da5" },
+    { name: "KENSTAR", logo: "https://logo.clearbit.com/kenstar.in", color: "#000000" },
+    { name: "Vidiem", logo: "https://logo.clearbit.com/vidiem.in", color: "#e4002b" },
+    { name: "V-GUARD", logo: "https://logo.clearbit.com/vguard.in", color: "#e4002b" },
+    { name: "Butterfly", logo: "https://logo.clearbit.com/butterflyindia.com", color: "#e4002b" },
+    { name: "impex", logo: "https://logo.clearbit.com/impexindia.com", color: "#0057b8" },
+    { name: "Panasonic", logo: "https://logo.clearbit.com/panasonic.com", color: "#004b8d" },
+    { name: "PHILIPS", logo: "https://logo.clearbit.com/philips.com", color: "#0057b8" },
+    { name: "VENUS", logo: "https://logo.clearbit.com/venusindia.com", color: "#e4002b" },
+    { name: "HAVELLS", logo: "https://logo.clearbit.com/havells.com", color: "#e4002b" },
+    { name: "orient electric", logo: "https://logo.clearbit.com/orientelectric.com", color: "#e4002b" },
+    { name: "LUKER", logo: "https://logo.clearbit.com/luker.in", color: "#000000" },
+    { name: "MILTON", logo: "https://logo.clearbit.com/milton.in", color: "#0057b8" },
+    { name: "vivo", logo: "https://logo.clearbit.com/vivo.com", color: "#415fff" },
+    { name: "oppo", logo: "https://logo.clearbit.com/oppo.com", color: "#008758" },
+    { name: "LAVA", logo: "https://logo.clearbit.com/lavamobiles.com", color: "#e4002b" },
+    { name: "POCO", logo: "https://logo.clearbit.com/po.co", color: "#ffcb05" },
+    { name: "iPhone", logo: "https://logo.clearbit.com/apple.com", color: "#000000" },
+  ];
+
+  const getBrandColor = (b) => b.color || "#7a0c1e";
 
   return (
     <div style={{ fontFamily: "Arial, sans-serif", background: "#fff" }}>
-
-      {/* ===== HERO - CODE ONLY - LIKE SCREENSHOT - CENTERED ===== */}
       <section style={{ background: "linear-gradient(90deg,#2a050a,#5b0a1a 42%,#3a0a12)", color: "#fff", overflow: "hidden", position: "relative" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", flexWrap: "wrap", alignItems: "center", padding: "0 16px", minHeight: "360px" }}>
-
-          {/* LEFT - CENTERED LIKE SCREENSHOT */}
           <div style={{ flex: "0 0 360px", padding: "30px 0", zIndex: 2, textAlign: "center" }}>
             <div style={{ color: "#f5c242", fontWeight: "800", fontSize: "13px", letterSpacing: "0.5px", lineHeight: 1.5 }}>PUDUCHERRY'S TRUSTED ELECTRONICS<br />STORE</div>
             <h1 style={{ fontSize: "52px", lineHeight: "1.05", margin: "14px 0", color: "#fff", fontWeight: "700" }}>Upgrade Your<br />Home &<br />Lifestyle</h1>
@@ -174,16 +185,12 @@ function Home() {
               <span>⭐ 4.8 Rating</span><span>• 10,000+ Happy Customers</span>
             </div>
           </div>
-
-          {/* RIGHT - COLLAGE LIKE SCREENSHOT */}
           <div style={{ flex: 1, minWidth: "320px", position: "relative", height: "360px", display: "flex", alignItems: "center", justifyContent: "center" }}>
             <div style={{ position: "absolute", left: "0%", top: "22%", background: "#f5c242", color: "#111", borderRadius: "50%", width: "82px", height: "82px", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", fontWeight: "900", fontSize: "12px", lineHeight: 1.2, zIndex: 5, border: "3px solid #fff" }}>🏆 Best<br />Deals<br />Always</div>
-
             <div style={{ display: "flex", alignItems: "flex-end", gap: "8px", width: "100%", justifyContent: "center", paddingLeft: "70px" }}>
               <img src={IMG.washer} alt="Washing Machine" style={{ width: "17%", height: "160px", objectFit: "cover", borderRadius: "10px" }} />
               <img src={IMG.fridge} alt="Fridge" style={{ width: "19%", height: "230px", objectFit: "cover", borderRadius: "10px" }} />
               <div style={{ width: "30%", display: "flex", flexDirection: "column", gap: "8px" }}>
-                {/* ✅ AC as real image /ac.jpg, not card */}
                 <img src={IMG.ac} alt="AC" style={{ width: "100%", height: "60px", objectFit: "cover", borderRadius: "8px", background: "#fff" }} />
                 <img src={IMG.tv} alt="TV" style={{ width: "100%", height: "115px", objectFit: "cover", borderRadius: "8px" }} />
                 <img src={IMG.kitchen} alt="Microwave" style={{ width: "100%", height: "60px", objectFit: "cover", borderRadius: "8px" }} />
@@ -191,7 +198,6 @@ function Home() {
               <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300&q=80" alt="Mobile" style={{ width: "10%", height: "95px", objectFit: "cover", borderRadius: "8px", marginBottom: "15px" }} />
               <img src="https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=300&q=80" alt="Mixer" style={{ width: "14%", height: "130px", objectFit: "cover", borderRadius: "10px" }} />
             </div>
-
             <div style={{ position: "absolute", bottom: "18px", left: "8%", right: "4%", height: "3px", background: "linear-gradient(90deg,transparent,#f5c242,transparent)" }} />
             <div style={{ position: "absolute", bottom: "8px", left: "50%", transform: "translateX(-50%)", display: "flex", gap: "6px" }}>
               <span style={{ width: "18px", height: "5px", background: "#fff", borderRadius: "4px", display: "block" }} />
@@ -254,21 +260,39 @@ function Home() {
         </div>
       </div>
 
+      {/* ✅ 3 ROWS WITH SYMBOL + LOGO - ROW 1 RIGHT / ROW 2 LEFT / ROW 3 RIGHT */}
       <style>{`
-        @keyframes brandSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .brand-track { display: flex; gap: 12px; width: max-content; animation: brandSlide 22s linear infinite; }
+        @keyframes slideLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes slideRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        .brand-track { display: flex; gap: 12px; width: max-content; }
+        .go-left { animation: slideLeft 35s linear infinite; }
+        .go-right { animation: slideRight 35s linear infinite; }
         .brand-track:hover { animation-play-state: paused; }
       `}</style>
+
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "20px 16px 28px" }}>
-        <h2 style={{ color: "#7a0c1e", margin: "0 0 14px" }}>— Our Top Brands</h2>
-        <div style={{ overflow: "hidden", whiteSpace: "nowrap", padding: "4px 0" }}>
-          <div className="brand-track">
-            {[...brands, ...brands].map((b, i) => (
-              <Link key={i} to="/Bestdeals" style={{ border: "1px solid #eee", boxShadow: "0 1px 6px rgba(0,0,0,0.06)", padding: "12px 18px", borderRadius: "10px", fontWeight: "900", whiteSpace: "nowrap", background: "#fff", color: b === "LG" ? "#a50034" : b === "BOSCH" ? "#e30613" : b === "DAIKIN" ? "#0090da" : "#0f2a6b", fontSize: "15px", flexShrink: 0, textDecoration: "none" }}>{b}</Link>
-            ))}
-            <Link to="/Bestdeals" style={{ border: "1px solid #7a0c1e", color: "#7a0c1e", padding: "12px 16px", borderRadius: "20px", fontSize: "12px", fontWeight: "700", whiteSpace: "nowrap", background: "#fff", flexShrink: 0, textDecoration: "none" }}>View All Brands →</Link>
-          </div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <h2 style={{ color: "#7a0c1e", margin: "0 0 14px" }}>— Our Top Brands ({brands.length})</h2>
+          <Link to="/Brands" style={{ color: "#7a0c1e", fontWeight: "700", fontSize: "14px", textDecoration: "none" }}>View All Brands →</Link>
         </div>
+
+        {[
+          brands.slice(0, 13),
+          brands.slice(13, 26),
+          brands.slice(26, 39),
+        ].map((row, r) => (
+          <div key={r} style={{ overflow: "hidden", whiteSpace: "nowrap", padding: "4px 0", marginBottom: 8 }}>
+            <div className={`brand-track ${r === 1 ? "go-left" : "go-right"}`}>
+              {[...row, ...row, ...row].map((b, i) => (
+                <Link key={i} to="/Brands" style={{ border: "1px solid #eee", boxShadow: "0 1px 6px rgba(0,0,0,0.06)", padding: "8px 12px", borderRadius: "10px", background: "#fff", display: "flex", alignItems: "center", gap: 8, flexShrink: 0, textDecoration: "none", minWidth: 140, justifyContent: "center" }}>
+                  <span style={{ width: 30, height: 30, borderRadius: "50%", background: getBrandColor(b), color: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "900", fontSize: 14, flexShrink: 0 }}>{b.name.charAt(0).toUpperCase()}</span>
+                  <img src={b.logo} alt="" style={{ height: 22, maxWidth: 70, objectFit: "contain" }} onError={(e) => { e.target.style.display = "none"; }} />
+                  <span style={{ fontWeight: "900", fontSize: 13, color: "#0f2a6b", whiteSpace: "nowrap" }}>{b.name}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
 
       <div style={{ background: "#f8fafc", padding: "30px 20px", textAlign: "center" }}>
@@ -301,13 +325,11 @@ function Bestdeals() {
     return () => clearInterval(t);
   }, []);
   const pad = (n) => String(n).padStart(2, "0");
-
   const items = [
     { id: 201, brand: "SAMSUNG", name: "SAMSUNG 55 inch 4K UHD Smart LED TV", price: 29999, mrp: 59999, priceText: "₹29,999", oldPrice: "₹59,999", img: IMG.tv },
     { id: 202, brand: "LG", name: "LG 1.5 Ton 5-Star Inverter Split AC", price: 34499, mrp: 68999, priceText: "₹34,499", oldPrice: "₹68,999", img: IMG.ac },
     { id: 203, brand: "SAMSUNG", name: "SAMSUNG 260L Double Door Fridge", price: 24999, mrp: 49999, priceText: "₹24,999", oldPrice: "₹49,999", img: IMG.fridge },
   ];
-
   return (
     <div style={{ background: "#f2f2f2", fontFamily: "Arial" }}>
       <div style={{ background: "linear-gradient(90deg,#1a0a6e,#4a1ab5,#ff8a00)", color: "#fff", display: "flex", padding: "30px", alignItems: "center", gap: "20px", flexWrap: "wrap" }}>
@@ -356,7 +378,6 @@ export default function App() {
     const c = JSON.parse(localStorage.getItem("sagar_cart") || "[]");
     return c.reduce((s, i) => s + i.qty, 0);
   });
-
   useEffect(() => {
     const update = () => {
       const c = JSON.parse(localStorage.getItem("sagar_cart") || "[]");
@@ -366,7 +387,6 @@ export default function App() {
     window.addEventListener("storage", update);
     return () => { window.removeEventListener("cartUpdated", update); window.removeEventListener("storage", update); };
   }, []);
-
   return (
     <>
       <Navbar />
@@ -383,6 +403,7 @@ export default function App() {
         <Route path="/contact" element={<EnquiryForm />} />
         <Route path="/enquiry" element={<EnquiryForm />} />
         <Route path="/visit-store" element={<EnquiryForm />} />
+        <Route path="/Brands" element={<Brands />} />
       </Routes>
       <Footer />
       <a href="https://wa.me/918608090719?text=Hi%20SAGAR%2C%20I%20want%20to%20enquire" target="_blank" rel="noreferrer" style={{ position: "fixed", bottom: "20px", right: "20px", background: "#25D366", color: "#fff", width: "56px", height: "56px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px", textDecoration: "none", boxShadow: "0 4px 12px rgba(0,0,0,0.3)", zIndex: 999 }}>💬</a>
