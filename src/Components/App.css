@@ -1,0 +1,4 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:#f8fafc;color:#222}
+.announcement{background:#e63946;color:#fff;text-align:center;padding:9px 12px;font-size:13px;font-weight:700;letter-spacing:.3px}
+a{font-family:inherit}

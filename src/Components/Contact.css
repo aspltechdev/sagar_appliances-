@@ -1,0 +1,8 @@
+/* Contact.css */
+.sagar-contact{max-width:1280px;margin:40px auto;background:#0a3d62;color:#fff;border-radius:22px;padding:32px;text-align:center}
+.sagar-contact-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:18px 0}
+.btn-whatsapp{background:#25d366;color:#fff;padding:13px 22px;border-radius:50px;text-decoration:none;font-weight:800}
+.btn-outline-dark{border:2px solid #fff;color:#fff;padding:11px 22px;border-radius:50px;text-decoration:none;font-weight:700}
+.sagar-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.sagar-form input{padding:12px 16px;border-radius:50px;border:none;min-width:220px;outline:none}
+.sagar-form button{background:#ff6b00;color:#fff;border:none;padding:12px 22px;border-radius:50px;font-weight:800;cursor:pointer}

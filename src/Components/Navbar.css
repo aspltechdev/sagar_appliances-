@@ -1,0 +1,199 @@
+.sagar-navbar {
+  background: #ffffff;
+  width: 100%;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  animation: slideDown 0.6s ease;
+}
+
+.sagar-navbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 30px;
+  flex-wrap: nowrap;
+}
+
+/* ===== OPTION 2 ANIMATED LOGO ===== */
+.sagar-logo {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-start;
+  line-height: 1;
+  font-family: "Arial Black", Arial, sans-serif;
+  background: linear-gradient(90deg, #0a9bb8, #0a7a5e, #6bc964, #0a9bb8);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientMove 4s linear infinite, floatLogo 3s ease-in-out infinite;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sagar-logo .star {
+  font-size: 18px;
+  margin-left: 2px;
+  margin-top: -6px;
+  color: #ffc107;
+  -webkit-text-fill-color: #ffc107;
+  animation: starTwinkle 1.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+.sagar-search {
+  display: flex;
+  flex: 1;
+  max-width: 480px;
+  min-width: 200px;
+  border: 2px solid #103c60;
+  border-radius: 50px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.sagar-search:focus-within {
+  box-shadow: 0 0 0 4px rgba(16, 60, 96, 0.15);
+  transform: scale(1.01);
+}
+
+.sagar-search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 14px 20px;
+  font-size: 16px;
+}
+
+.sagar-search button {
+  border: none;
+  background: #103c60;
+  color: white;
+  padding: 0 28px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.sagar-search button:hover {
+  background: #ff6b00;
+}
+
+.sagar-phone {
+  white-space: nowrap;
+  font-size: 18px;
+  color: #222;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.emi-button {
+  background: #ff6b00;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 700;
+  white-space: nowrap;
+  animation: pulseBtn 2s infinite;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.emi-button:hover {
+  transform: scale(1.05);
+}
+
+.sagar-nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  padding: 0 15px 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.sagar-nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+.sagar-nav-links a {
+  text-decoration: none;
+  color: #292929;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 12px 17px;
+  transition: 0.3s;
+  position: relative;
+  white-space: nowrap;
+}
+
+.sagar-nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 17px;
+  bottom: 4px;
+  width: 0;
+  height: 3px;
+  background: #ff6b00;
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+
+.sagar-nav-links a:hover {
+  color: #ff6b00;
+}
+
+.sagar-nav-links a:hover::after {
+  width: calc(100% - 34px);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes starTwinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.5) rotate(20deg); opacity: 0.8; }
+}
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes pulseBtn {
+  0% { box-shadow: 0 0 0 0 rgba(255,107,0,0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(255,107,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,107,0,0); }
+}
+
+@media (max-width: 900px) {
+  .sagar-navbar-top { flex-wrap: wrap; }
+  .sagar-search { order: 3; max-width: 100%; flex-basis: 100%; }
+  .sagar-nav-links { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
+  .sagar-nav-links a { white-space: nowrap; }
+}
+
+@media (max-width: 600px) {
+  .sagar-navbar-top { padding: 15px; gap: 12px; }
+  .sagar-logo { font-size: 30px; }
+  .sagar-phone { font-size: 14px; }
+  .emi-button { padding: 11px 18px; }
+  .sagar-search input { padding: 12px; }
+}
