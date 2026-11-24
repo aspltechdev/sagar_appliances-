@@ -1,0 +1,917 @@
+
+/* =========================================================
+   SAGAR HOME APPLIANCES & MOBILES
+   PREMIUM GALLERY SECTION
+   Primary Theme: Burgundy + Gold + Cream
+   Typography: Playfair Display + Outfit
+========================================================= */
+
+.sagar-gallery {
+  --gallery-maroon: #68182d;
+  --gallery-dark: #48101f;
+  --gallery-red: #79223a;
+  --gallery-gold: #d7a34d;
+  --gallery-light-gold: #f0cc83;
+  --gallery-cream: #fff8f0;
+  --gallery-text: #fff8f0;
+
+  position: relative;
+  width: 100%;
+  padding: 100px 5.2% 85px;
+  overflow: hidden;
+  isolation: isolate;
+
+  color: var(--gallery-cream);
+
+  background:
+    radial-gradient(
+      ellipse at 10% 10%,
+      rgba(215, 163, 77, 0.13),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 90% 90%,
+      rgba(255, 255, 255, 0.045),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #48101f 0%,
+      #68182d 48%,
+      #79223a 100%
+    );
+
+  font-family: "Outfit", sans-serif;
+  font-style: normal;
+}
+
+.sagar-gallery *,
+.sagar-gallery *::before,
+.sagar-gallery *::after {
+  box-sizing: border-box;
+}
+
+.sagar-gallery button {
+  font-family: "Outfit", sans-serif;
+  font-style: normal;
+  cursor: pointer;
+}
+
+.sagar-gallery-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+/* =========================================================
+   DECORATIVE BACKGROUND
+========================================================= */
+
+.sagar-gallery-decoration {
+  position: absolute;
+  z-index: 0;
+  width: 280px;
+  height: 280px;
+  pointer-events: none;
+}
+
+.sagar-gallery-decoration-left {
+  top: -160px;
+  left: -165px;
+
+  border: 1px solid rgba(215, 163, 77, 0.3);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 18px rgba(215, 163, 77, 0.045),
+    0 0 0 40px rgba(215, 163, 77, 0.025);
+}
+
+.sagar-gallery-decoration-right {
+  right: -170px;
+  bottom: -160px;
+
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 18px rgba(255, 255, 255, 0.025),
+    0 0 0 40px rgba(255, 255, 255, 0.015);
+}
+
+/* =========================================================
+   INTRO SECTION
+========================================================= */
+
+.sagar-gallery-intro {
+  max-width: 900px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+/* Eyebrow */
+
+.sagar-gallery-eyebrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 17px;
+
+  color: #f2ca83;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.sagar-gallery-eyebrow span {
+  width: 55px;
+  height: 1px;
+  background: var(--gallery-gold);
+}
+
+/* Main heading */
+
+.sagar-gallery-intro h2 {
+  margin: 17px 0 12px;
+
+  color: var(--gallery-cream);
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(48px, 5.5vw, 74px);
+  font-weight: 700;
+  font-style: normal;
+
+  line-height: 1.12;
+  letter-spacing: -2.5px;
+}
+
+.sagar-gallery-intro h2 em {
+  color: #e6b65e;
+
+  font-family: "Playfair Display", serif;
+  font-size: inherit;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Description */
+
+.sagar-gallery-intro > p {
+  max-width: 650px;
+  margin: 0 auto;
+
+  color: rgba(255, 248, 240, 0.78);
+
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   CATEGORY FILTERS
+   Retained for compatibility if JSX uses filters.
+========================================================= */
+
+.sagar-gallery-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 13px;
+
+  margin-top: 30px;
+}
+
+.sagar-filter {
+  min-height: 45px;
+  padding: 0 23px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  color: var(--gallery-cream);
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(215, 163, 77, 0.5);
+  border-radius: 50px;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.sagar-filter svg {
+  color: var(--gallery-gold);
+  font-size: 16px;
+}
+
+.sagar-filter:hover {
+  color: var(--gallery-dark);
+  background: var(--gallery-gold);
+  border-color: var(--gallery-gold);
+  transform: translateY(-3px);
+}
+
+.sagar-filter.active {
+  color: var(--gallery-dark);
+  background: var(--gallery-gold);
+  border-color: var(--gallery-gold);
+
+  box-shadow: 0 8px 22px rgba(20, 0, 8, 0.18);
+}
+
+.sagar-filter.active svg {
+  color: var(--gallery-dark);
+}
+
+/* =========================================================
+   GALLERY GRID
+========================================================= */
+
+.sagar-gallery-grid {
+  display: grid;
+
+  grid-template-columns: 1.45fr 1fr 1fr;
+  grid-template-rows: 202px 202px;
+
+  gap: 13px;
+  margin-top: 32px;
+}
+
+/* Gallery cards */
+
+.sagar-gallery-card {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+
+  padding: 0;
+  overflow: hidden;
+  isolation: isolate;
+
+  text-align: left;
+
+  background: #4b2830;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  box-shadow: 0 15px 35px rgba(20, 0, 8, 0.2);
+}
+
+.sagar-gallery-card.large {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+
+.sagar-gallery-card.medium {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+.sagar-gallery-card.wide {
+  grid-column: 2 / 4;
+  grid-row: auto;
+}
+
+/* Images */
+
+.sagar-gallery-card img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+
+  transition:
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.sagar-gallery-card:hover img {
+  transform: scale(1.075);
+}
+
+/* Image overlay */
+
+.sagar-gallery-image-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    180deg,
+    rgba(30, 12, 18, 0) 25%,
+    rgba(30, 12, 18, 0.16) 50%,
+    rgba(39, 8, 20, 0.88) 100%
+  );
+
+  transition: background 0.35s ease;
+}
+
+.sagar-gallery-card:hover .sagar-gallery-image-shade {
+  background: linear-gradient(
+    180deg,
+    rgba(30, 12, 18, 0.02) 15%,
+    rgba(30, 12, 18, 0.3) 55%,
+    rgba(39, 8, 20, 0.92) 100%
+  );
+}
+
+/* Card content */
+
+.sagar-gallery-card-content {
+  position: absolute;
+  z-index: 2;
+
+  right: 20px;
+  bottom: 19px;
+  left: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  color: #fff;
+}
+
+/* Card icon */
+
+.sagar-gallery-card-icon {
+  width: 39px;
+  height: 39px;
+  flex: 0 0 39px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--gallery-gold);
+  font-size: 23px;
+}
+
+/* Card text */
+
+.sagar-gallery-card-text {
+  min-width: 0;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sagar-gallery-card-text strong {
+  color: #fff;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
+}
+
+.sagar-gallery-card-text small {
+  color: rgba(255, 255, 255, 0.9);
+
+  font-family: "Outfit", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Card arrow */
+
+.sagar-gallery-card-arrow {
+  width: 37px;
+  height: 37px;
+  flex: 0 0 37px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--gallery-gold);
+
+  border: 1.5px solid var(--gallery-gold);
+  border-radius: 50%;
+
+  transition: 0.3s ease;
+}
+
+.sagar-gallery-card:hover .sagar-gallery-card-arrow {
+  color: var(--gallery-dark);
+  background: var(--gallery-gold);
+  transform: translateX(4px);
+}
+
+/* Large featured card */
+
+.sagar-gallery-card.large .sagar-gallery-card-content {
+  right: 24px;
+  bottom: 23px;
+  left: 24px;
+}
+
+.sagar-gallery-card.large .sagar-gallery-card-text strong {
+  font-size: 21px;
+}
+
+.sagar-gallery-card.large .sagar-gallery-card-text small {
+  font-size: 13px;
+}
+
+/* =========================================================
+   GALLERY HIGHLIGHTS — GOLD FEATURE STRIP
+========================================================= */
+
+.sagar-gallery-highlights {
+  min-height: 112px;
+
+  margin-top: 26px;
+  padding: 19px 35px;
+
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr 1fr;
+  align-items: center;
+
+  color: var(--gallery-dark);
+
+  background:
+    radial-gradient(
+      ellipse at 90% 0%,
+      rgba(255, 255, 255, 0.3),
+      transparent 35%
+    ),
+    linear-gradient(
+      110deg,
+      #d7a34d,
+      #f0cc83,
+      #c28a37
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 27px;
+
+  box-shadow: 0 15px 35px rgba(20, 0, 8, 0.2);
+}
+
+/* Highlights heading */
+
+.sagar-highlight-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+
+  color: var(--gallery-maroon);
+}
+
+.sagar-highlight-heading svg {
+  font-size: 39px;
+}
+
+.sagar-highlight-heading strong {
+  color: var(--gallery-dark);
+
+  font-family: "Outfit", sans-serif;
+  font-size: 21px;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+/* Statistics */
+
+.sagar-highlight-stat {
+  min-height: 58px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+
+  border-left: 1px solid rgba(72, 16, 31, 0.25);
+  text-align: center;
+}
+
+.sagar-highlight-stat strong {
+  color: var(--gallery-maroon);
+
+  font-family: "Outfit", sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.sagar-highlight-stat span {
+  color: var(--gallery-dark);
+
+  font-family: "Outfit", sans-serif;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+.sagar-lightbox {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+
+  padding: 50px 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(20, 8, 13, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.sagar-lightbox-content {
+  width: min(100%, 1050px);
+  max-height: 88vh;
+
+  overflow: hidden;
+
+  background: var(--gallery-cream);
+  border-radius: 17px;
+
+  box-shadow: 0 25px 90px rgba(0, 0, 0, 0.4);
+}
+
+.sagar-lightbox-content img {
+  width: 100%;
+  max-height: 72vh;
+
+  display: block;
+  object-fit: contain;
+
+  background: #1b1013;
+}
+
+.sagar-lightbox-caption {
+  padding: 19px 24px 22px;
+}
+
+.sagar-lightbox-caption > span {
+  color: #a26b2a;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.sagar-lightbox-caption h3 {
+  margin: 5px 0;
+
+  color: var(--gallery-maroon);
+
+  font-family: "Outfit", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.sagar-lightbox-caption p {
+  margin: 0;
+
+  color: #76686a;
+
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* Lightbox controls */
+
+.sagar-lightbox-close,
+.sagar-lightbox-nav {
+  position: absolute;
+  z-index: 2;
+
+  width: 45px;
+  height: 45px;
+
+  display: grid;
+  place-items: center;
+
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+.sagar-lightbox-close:hover,
+.sagar-lightbox-nav:hover {
+  color: var(--gallery-dark);
+  background: var(--gallery-gold);
+  border-color: var(--gallery-gold);
+}
+
+.sagar-lightbox-close {
+  top: 25px;
+  right: 28px;
+}
+
+.sagar-lightbox-nav {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sagar-lightbox-nav.previous {
+  left: 22px;
+}
+
+.sagar-lightbox-nav.next {
+  right: 22px;
+}
+
+/* =========================================================
+   TABLET RESPONSIVE
+========================================================= */
+
+@media (max-width: 1050px) {
+  .sagar-gallery {
+    padding: 80px 4%;
+  }
+
+  .sagar-gallery-grid {
+    grid-template-columns: 1.25fr 1fr;
+    grid-template-rows: 230px 190px 190px;
+  }
+
+  .sagar-gallery-card.large {
+    grid-column: 1;
+    grid-row: 1 / 3;
+  }
+
+  .sagar-gallery-card.wide {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+
+  .sagar-gallery-highlights {
+    padding: 20px;
+  }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE
+========================================================= */
+
+@media (max-width: 650px) {
+  .sagar-gallery {
+    padding: 70px 18px 55px;
+  }
+
+  .sagar-gallery-intro {
+    margin-bottom: 28px;
+  }
+
+  .sagar-gallery-eyebrow {
+    gap: 9px;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+  }
+
+  .sagar-gallery-eyebrow span {
+    width: 24px;
+  }
+
+  .sagar-gallery-intro h2 {
+    margin-top: 16px;
+
+    font-family: "Playfair Display", serif;
+    font-size: 46px;
+    font-weight: 700;
+    letter-spacing: -1.5px;
+  }
+
+  .sagar-gallery-intro > p {
+    max-width: 360px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* Mobile filters */
+
+  .sagar-gallery-filters {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 8px;
+
+    margin: 24px -18px 0;
+    padding: 0 18px 8px;
+
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .sagar-gallery-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sagar-filter {
+    min-height: 39px;
+    padding: 0 15px;
+
+    flex: 0 0 auto;
+    gap: 7px;
+
+    font-size: 11px;
+  }
+
+  /* Gallery grid */
+
+  .sagar-gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 250px 160px 160px 160px;
+
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .sagar-gallery-card.large {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  .sagar-gallery-card.medium {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .sagar-gallery-card.wide {
+    grid-column: 1 / 3;
+    grid-row: auto;
+  }
+
+  .sagar-gallery-card {
+    border-radius: 13px;
+  }
+
+  /* Card content */
+
+  .sagar-gallery-card-content {
+    right: 10px;
+    bottom: 12px;
+    left: 10px;
+    gap: 7px;
+  }
+
+  .sagar-gallery-card-icon {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+    font-size: 17px;
+  }
+
+  .sagar-gallery-card-text strong {
+    font-size: 12px;
+  }
+
+  .sagar-gallery-card-text small {
+    font-size: 9px;
+  }
+
+  .sagar-gallery-card-arrow {
+    width: 27px;
+    height: 27px;
+    flex-basis: 27px;
+    font-size: 10px;
+  }
+
+  .sagar-gallery-card.large .sagar-gallery-card-text strong {
+    font-size: 17px;
+  }
+
+  .sagar-gallery-card.large .sagar-gallery-card-text small {
+    font-size: 10px;
+  }
+
+  /* Mobile highlights */
+
+  .sagar-gallery-highlights {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 8px;
+
+    margin-top: 18px;
+    padding: 23px 12px;
+
+    border-radius: 18px;
+  }
+
+  .sagar-highlight-heading {
+    gap: 10px;
+  }
+
+  .sagar-highlight-heading svg {
+    font-size: 28px;
+  }
+
+  .sagar-highlight-heading strong {
+    font-size: 16px;
+  }
+
+  .sagar-highlight-stat {
+    min-height: 50px;
+  }
+
+  .sagar-highlight-stat:nth-child(2) {
+    border-left: 1px solid rgba(72, 16, 31, 0.25);
+  }
+
+  .sagar-highlight-stat:nth-child(3) {
+    border-left: 0;
+  }
+
+  .sagar-highlight-stat strong {
+    font-size: 25px;
+  }
+
+  .sagar-highlight-stat span {
+    font-size: 10px;
+  }
+
+  /* Mobile lightbox */
+
+  .sagar-lightbox {
+    padding: 65px 15px;
+  }
+
+  .sagar-lightbox-content {
+    border-radius: 12px;
+  }
+
+  .sagar-lightbox-content img {
+    max-height: 62vh;
+  }
+
+  .sagar-lightbox-close {
+    top: 15px;
+    right: 15px;
+  }
+
+  .sagar-lightbox-nav {
+    top: auto;
+    bottom: 15px;
+    transform: none;
+  }
+
+  .sagar-lightbox-nav.previous {
+    left: calc(50% - 55px);
+  }
+
+  .sagar-lightbox-nav.next {
+    right: calc(50% - 55px);
+  }
+
+  .sagar-lightbox-caption {
+    padding: 15px;
+  }
+
+  .sagar-lightbox-caption h3 {
+    font-size: 21px;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY — REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .sagar-gallery *,
+  .sagar-gallery *::before,
+  .sagar-gallery *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

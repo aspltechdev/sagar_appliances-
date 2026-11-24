@@ -1,44 +1,500 @@
-import { Link } from "react-router-dom";
 
-export default function Footer() {
+// import { motion } from "framer-motion";
+
+// import {
+//   FaInstagram,
+//   FaFacebookF,
+//   FaYoutube,
+//   FaWhatsapp,
+//   FaPhoneAlt,
+//   FaMapMarkerAlt,
+//   FaEnvelope,
+//   FaChevronRight,
+//   FaArrowUp,
+//   FaExternalLinkAlt,
+// } from "react-icons/fa";
+
+// import { FiClock } from "react-icons/fi";
+
+// import "./Footer.css";
+
+// const Footer = () => {
+//   const quickLinks = [
+//     { name: "Home", link: "#home" },
+//     { name: "About Us", link: "#about" },
+//     { name: "Our Categories", link: "#our-range" },
+//     { name: "Our Brands", link: "#brands" },
+//     { name: "Customer Reviews", link: "#testimonials" },
+//     { name: "Contact Us", link: "#contact" },
+//   ];
+
+//   const categories = [
+//     "Televisions",
+//     "Refrigerators",
+//     "Washing Machines",
+//     "Air Conditioners",
+//     "Mobile Phones",
+//     "Kitchen Appliances",
+//     "Home Appliances",
+//   ];
+
+//   const socialLinks = [
+//     {
+//       icon: FaInstagram,
+//       link: "https://www.instagram.com/",
+//       label: "Instagram",
+//     },
+//     {
+//       icon: FaFacebookF,
+//       link: "https://www.facebook.com/",
+//       label: "Facebook",
+//     },
+//     {
+//       icon: FaYoutube,
+//       link: "https://www.youtube.com/",
+//       label: "YouTube",
+//     },
+//   ];
+
+//   return (
+//     <footer className="sagar-footer">
+//       <div className="footer-gold-line" />
+
+//       <div className="footer-container">
+
+//         {/* MAIN FOOTER */}
+//         <div className="footer-main">
+
+//           {/* BRAND COLUMN */}
+//           <motion.div
+//             className="footer-brand-column"
+//             initial={{ opacity: 0, y: 25 }}
+//             whileInView={{ opacity: 1, y: 0 }}
+//             viewport={{ once: true }}
+//             transition={{ duration: 0.6 }}
+//           >
+//             <a href="#home" className="footer-logo">
+//               <img
+//                 src="/logo.jpeg"
+//                 alt="SAGAR Home Appliances and Mobiles"
+//               />
+//             </a>
+
+//             <h3>
+//               SAGAR
+//               <span>HOME APPLIANCES & MOBILES</span>
+//             </h3>
+
+//             <p className="footer-brand-description">
+//               Bringing comfort, convenience and happiness
+//               to every home. Discover trusted brands and
+//               quality appliances with the SAGAR experience.
+//             </p>
+
+//             <div className="footer-socials">
+//               {socialLinks.map((social) => {
+//                 const Icon = social.icon;
+
+//                 return (
+//                   <a
+//                     key={social.label}
+//                     href={social.link}
+//                     target="_blank"
+//                     rel="noopener noreferrer"
+//                     aria-label={social.label}
+//                   >
+//                     <Icon />
+//                   </a>
+//                 );
+//               })}
+//             </div>
+//           </motion.div>
+
+//           {/* QUICK LINKS */}
+//           <div className="footer-links-column">
+//             <h4>Quick Links</h4>
+
+//             <ul>
+//               {quickLinks.map((item) => (
+//                 <li key={item.name}>
+//                   <a href={item.link}>
+//                     <FaChevronRight />
+//                     {item.name}
+//                   </a>
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+
+//           {/* CATEGORIES */}
+//           <div className="footer-links-column">
+//             <h4>Our Categories</h4>
+
+//             <ul>
+//               {categories.map((category) => (
+//                 <li key={category}>
+//                   <a href="#our-range">
+//                     <FaChevronRight />
+//                     {category}
+//                   </a>
+//                 </li>
+//               ))}
+//             </ul>
+//           </div>
+
+//           {/* CONTACT COLUMN */}
+//           <div className="footer-contact-column">
+//             <h4>Get In Touch</h4>
+
+//             <div className="footer-contact-item">
+//               <div className="footer-contact-icon">
+//                 <FaMapMarkerAlt />
+//               </div>
+
+//               <p>
+//                 120, Kamaraj Salai,
+//                 <br />
+//                 Next to Balaji Theatre,
+//                 <br />
+//                 Puducherry - 605 013
+//               </p>
+//             </div>
+
+//             <a
+//               href="tel:+918608090719"
+//               className="footer-contact-item"
+//             >
+//               <div className="footer-contact-icon">
+//                 <FaPhoneAlt />
+//               </div>
+//               <p>+91 86080 90719</p>
+//             </a>
+
+//             <a
+//               href="tel:+916369424781"
+//               className="footer-contact-item"
+//             >
+//               <div className="footer-contact-icon">
+//                 <FaPhoneAlt />
+//               </div>
+//               <p>+91 63694 24781</p>
+//             </a>
+
+//             <a
+//               href="mailto:sagarhomeappliancesandmobiles@gmail.com"
+//               className="footer-contact-item"
+//             >
+//               <div className="footer-contact-icon">
+//                 <FaEnvelope />
+//               </div>
+//               <p>sagarhomeappliancesandmobiles@gmail.com</p>
+//             </a>
+
+//             <div className="footer-contact-item">
+//               <div className="footer-contact-icon">
+//                 <FiClock />
+//               </div>
+//               <p>Contact us for store timings</p>
+//             </div>
+//           </div>
+
+//         </div>
+
+//         {/* WHATSAPP CTA */}
+//         <motion.div
+//           className="footer-cta"
+//           initial={{ opacity: 0, y: 25 }}
+//           whileInView={{ opacity: 1, y: 0 }}
+//           viewport={{ once: true }}
+//           transition={{ duration: 0.7 }}
+//         >
+//           <div>
+//             <span>NEED HELP CHOOSING THE RIGHT PRODUCT?</span>
+//             <h3>We're Just a Message Away.</h3>
+//           </div>
+
+//           <a
+//             href="https://wa.me/918608090719"
+//             target="_blank"
+//             rel="noopener noreferrer"
+//           >
+//             <FaWhatsapp />
+//             Chat With Us
+//             <FaExternalLinkAlt />
+//           </a>
+//         </motion.div>
+
+//         {/* FOOTER BOTTOM */}
+//         <div className="footer-bottom">
+//           <p>
+//             © {new Date().getFullYear()} SAGAR Home Appliances & Mobiles.
+//             All Rights Reserved.
+//           </p>
+
+//           <div className="footer-bottom-links">
+//             <a href="/privacy-policy">Privacy Policy</a>
+//             <span />
+//             <a href="/terms-and-conditions">
+//               Terms & Conditions
+//             </a>
+//           </div>
+
+//           <a href="#home" className="footer-back-top">
+//             Back to Top
+//             <FaArrowUp />
+//           </a>
+//         </div>
+
+//       </div>
+//     </footer>
+//   );
+// };
+
+// export default Footer;
+
+
+
+import { motion } from "framer-motion";
+import {
+  FaInstagram,
+  FaFacebookF,
+  FaYoutube,
+  FaWhatsapp,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaChevronRight,
+  FaArrowUp,
+} from "react-icons/fa";
+
+import { FiClock } from "react-icons/fi";
+import "./Footer.css";
+
+const Footer = () => {
+  const quickLinks = [
+    { name: "Home", link: "#home" },
+    { name: "About Us", link: "#about" },
+    { name: "Our Categories", link: "#our-range" },
+    { name: "Our Brands", link: "#brands" },
+    { name: "Customer Reviews", link: "#testimonials" },
+    { name: "Contact Us", link: "#contact" },
+  ];
+
+  const categories = [
+    "Televisions",
+    "Refrigerators",
+    "Washing Machines",
+    "Air Conditioners",
+    "Mobile Phones",
+    "Kitchen Appliances",
+    "Home Appliances",
+  ];
+
+  const socialLinks = [
+    {
+      icon: FaInstagram,
+      link: "https://www.instagram.com/",
+      label: "Instagram",
+    },
+    {
+      icon: FaFacebookF,
+      link: "https://www.facebook.com/",
+      label: "Facebook",
+    },
+    {
+      icon: FaYoutube,
+      link: "https://www.youtube.com/",
+      label: "YouTube",
+    },
+  ];
+
   return (
-    <footer style={{ background: "#0a2a3a", color: "#fff", padding: "30px 16px" }}>
-      <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", flexWrap: "wrap", gap: "40px", justifyContent: "space-between" }}>
+    <footer className="sagar-footer">
+      <div className="footer-gold-line" />
 
-        {/* ✅ CORRECT LOGO IN FOOTER TOO */}
-        <div style={{ maxWidth: "320px" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <img src="/logo.jpeg" alt="SAGAR" style={{ width: "56px", height: "56px", borderRadius: "50%", objectFit: "cover", border: "2px solid #d4af37" }} />
-            <span style={{ lineHeight: 1 }}>
-              <span style={{ display: "block", fontSize: "32px", fontWeight: "900", color: "#fff" }}>SAGAR</span>
-              <span style={{ display: "block", background: "#f5c242", color: "#111", fontSize: "10px", fontWeight: "700", padding: "3px 5px", marginTop: "2px" }}>HOME APPLIANCES & MOBILES</span>
-            </span>
+      <div className="footer-container">
+        <div className="footer-main">
+
+          {/* BRAND */}
+          <motion.div
+            className="footer-brand-column"
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <a href="#home" className="footer-logo">
+              <img
+                src="/logo.jpeg"
+                alt="SAGAR Home Appliances and Mobiles"
+              />
+            </a>
+
+            <h3>
+              SAGAR
+              <span>HOME APPLIANCES & MOBILES</span>
+            </h3>
+
+            <p className="footer-brand-description">
+              Bringing comfort, convenience and happiness
+              to every home. Discover trusted brands and
+              quality appliances with the SAGAR experience.
+            </p>
+
+            <div className="footer-socials">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+
+                return (
+                  <a
+                    key={social.label}
+                    href={social.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                  >
+                    <Icon />
+                  </a>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* QUICK LINKS */}
+          <div className="footer-links-column">
+            <h4>Quick Links</h4>
+
+            <ul>
+              {quickLinks.map((item) => (
+                <li key={item.name}>
+                  <a href={item.link}>
+                    <FaChevronRight />
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-          <p style={{ fontSize: "13px", color: "#ccc", marginTop: "10px" }}>
-            Smart Living Starts Here. Puducherry's trusted electronics store for TV, AC, Fridge & more. 100% Genuine • Best Price • Same Day Delivery.
+
+          {/* CATEGORIES */}
+          <div className="footer-links-column">
+            <h4>Our Categories</h4>
+
+            <ul>
+              {categories.map((category) => (
+                <li key={category}>
+                  <a href="#our-range">
+                    <FaChevronRight />
+                    {category}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* CONTACT */}
+          <div className="footer-contact-column">
+            <h4>Get In Touch</h4>
+
+            <div className="footer-contact-item">
+              <div className="footer-contact-icon">
+                <FaMapMarkerAlt />
+              </div>
+              <p>
+                120, Kamaraj Salai,
+                <br />
+                Next to Balaji Theatre,
+                <br />
+                Puducherry - 605 013
+              </p>
+            </div>
+
+            <a
+              href="tel:+918608090719"
+              className="footer-contact-item"
+            >
+              <div className="footer-contact-icon">
+                <FaPhoneAlt />
+              </div>
+              <p>+91 86080 90719</p>
+            </a>
+
+            <a
+              href="tel:+916369424781"
+              className="footer-contact-item"
+            >
+              <div className="footer-contact-icon">
+                <FaPhoneAlt />
+              </div>
+              <p>+91 63694 24781</p>
+            </a>
+
+            <a
+              href="mailto:sagarhomeappliancesandmobiles@gmail.com"
+              className="footer-contact-item"
+            >
+              <div className="footer-contact-icon">
+                <FaEnvelope />
+              </div>
+              <p>sagarhomeappliancesandmobiles@gmail.com</p>
+            </a>
+
+            <div className="footer-contact-item">
+              <div className="footer-contact-icon">
+                <FiClock />
+              </div>
+              <p>Contact us for store timings</p>
+            </div>
+          </div>
+        </div>
+
+        {/* WHATSAPP CTA */}
+        <motion.div
+          className="footer-cta"
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+          <div>
+            <span>NEED HELP CHOOSING THE RIGHT PRODUCT?</span>
+            <h3>We're Just a Message Away.</h3>
+          </div>
+
+          <a
+            href="https://wa.me/918608090719"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaWhatsapp />
+            Chat With Us
+            <FaArrowUp />
+          </a>
+        </motion.div>
+
+        {/* COPYRIGHT */}
+        <div className="footer-bottom">
+          <p>
+            © {new Date().getFullYear()} SAGAR Home Appliances & Mobiles.
+            All Rights Reserved.
           </p>
-          <p style={{ color: "#ff9900", fontWeight: "700", fontSize: "13px" }}>⭐ 4.8 Rating • 10,000+ Happy Customers</p>
-        </div>
 
-        <div>
-          <b>Quick Links</b><br />
-          <Link to="/" style={{ color: "#ccc", textDecoration: "none", fontSize: "14px", display: "block", marginTop: "8px" }}>• Home</Link>
-          <Link to="/Bestdeals" style={{ color: "#ccc", textDecoration: "none", fontSize: "14px", display: "block", marginTop: "6px" }}>Festival Deals</Link>
-          <Link to="/tv" style={{ color: "#ccc", textDecoration: "none", fontSize: "14px", display: "block", marginTop: "6px" }}>TV</Link>
-          <Link to="/ac" style={{ color: "#ccc", textDecoration: "none", fontSize: "14px", display: "block", marginTop: "6px" }}>AC</Link>
-          <Link to="/fridge" style={{ color: "#ccc", textDecoration: "none", fontSize: "14px", display: "block", marginTop: "6px" }}>Fridge</Link>
-          <Link to="/contact" style={{ color: "#ccc", textDecoration: "none", fontSize: "14px", display: "block", marginTop: "6px" }}>Contact</Link>
-        </div>
+          <div className="footer-bottom-links">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <span />
+            <a href="/terms-and-conditions">
+              Terms & Conditions
+            </a>
+          </div>
 
-        <div>
-          <b>Contact Us</b>
-          <p style={{ fontSize: "14px", color: "#ccc" }}>📍 120, Kamaraj Salai, Puducherry - 605 013<br />📞 86080 90719<br />🕙 Open: 10 AM - 9 PM (All Days)<br />🚚 Free Delivery in Puducherry</p>
-          <Link to="/Bestdeals" style={{ background: "#ff6b00", color: "#fff", padding: "10px 18px", borderRadius: "20px", textDecoration: "none", fontWeight: "800", fontSize: "14px" }}>Shop Now →</Link>
+          <a href="#home" className="footer-back-top">
+            Back to Top
+            <FaArrowUp />
+          </a>
         </div>
-      </div>
-      <div style={{ textAlign: "center", fontSize: "12px", color: "#888", marginTop: "24px", borderTop: "1px solid #333", paddingTop: "14px" }}>
-        © 2026 SAGAR Home Appliances & Mobiles, Puducherry | Privacy Policy | Terms
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
