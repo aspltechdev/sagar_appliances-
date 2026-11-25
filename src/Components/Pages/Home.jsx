@@ -102,9 +102,9 @@ const Home = () => {
       <FinalCTA />
 
       {/* Contact Section */}
-      <section id="contact">
-        <Contact />
-      </section>
+ <section id="contact">
+  <Contact />
+</section>
 
       {/* Footer */}
       <Footer />

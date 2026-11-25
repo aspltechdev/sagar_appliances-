@@ -354,6 +354,7 @@ import mixer from "../assets/mixer.png";
 import mobile from "../assets/mobile.png";
 import television from "../assets/television.png";
 import speaker from "../assets/speaker.png";
+import micro from "../assets/micro.png";
 
 
 const slides = [
@@ -402,11 +403,11 @@ const slides = [
     button: "View Our Range",
     background: "slide-three",
     products: [
-      { name: "Refrigerator", image: "/products/refrigerator.png", className: "fridge" },
-      { name: "Washing Machine", image: "../", className: "washer" },
-      { name: "Mixer", image: "/products/mixer.png", className: "mixer" },
-      { name: "Microwave", image: "/products/microwave.png", className: "microwave" },
-      { name: "Television", image: "/products/television.png", className: "tv" },
+      { name: "Refrigerator", image: fridge, className: "fridge" },
+      { name: "Washing Machine", image: washing, className: "washer" },
+      { name: "Mixer", image: mixer, className: "mixer" },
+      { name: "Microwave", image: micro, className: "microwave" },
+      { name: "Television", image:television, className: "tv" },
     ],
   },
 ];

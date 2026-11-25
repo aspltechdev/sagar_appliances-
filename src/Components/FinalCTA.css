@@ -1,4 +1,8 @@
 
+/* =========================================
+   FINAL CTA SECTION
+========================================= */
+
 .final-cta-section {
   position: relative;
   width: 100%;
@@ -79,9 +83,11 @@
   margin-bottom: 38px;
   color: #f0c16f;
   font-family: "Outfit", sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .final-cta-eyebrow svg {
@@ -94,29 +100,34 @@
   background: #c99b58;
 }
 
+/* MAIN HEADING */
+
 .final-cta-content h2 {
   margin: 0;
   color: #fffaf4;
   font-family: "Playfair Display", serif;
   font-size: clamp(45px, 5vw, 70px);
-  font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -1.8px;
+  font-weight: 700;
+  line-height: 1.13;
+  letter-spacing: -1px;
 }
 
 .final-cta-content h2 span {
   color: #f2bd61;
-  font-style: italic;
+  font-style: normal;
+  font-weight: 700;
 }
+
+/* DESCRIPTION */
 
 .final-cta-description {
   max-width: 610px;
   margin: 28px 0 38px;
   color: rgba(255, 248, 238, 0.85);
   font-family: "Outfit", sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 /* BUTTONS */
@@ -129,7 +140,7 @@
 }
 
 .final-cta-actions a {
-  min-height: 65px;
+  min-height: 60px;
   padding: 0 28px;
   display: inline-flex;
   align-items: center;
@@ -137,8 +148,9 @@
   gap: 13px;
   border-radius: 50px;
   font-family: "Outfit", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
+  letter-spacing: 0.2px;
   text-decoration: none;
   transition:
     background 0.35s ease,
@@ -191,8 +203,9 @@
   margin: 0;
   color: rgba(255, 248, 238, 0.92);
   font-family: "Outfit", sans-serif;
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.85;
 }
 
 /* RIGHT VISUAL */
@@ -297,13 +310,15 @@
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.4px;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .final-cta-floating-card strong {
   display: block;
   color: #45101b;
   font-family: "Outfit", sans-serif;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.3;
 }
@@ -367,7 +382,8 @@
 
   .final-cta-content h2 {
     font-size: clamp(39px, 9vw, 52px);
-    letter-spacing: -1px;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
   }
 
   .final-cta-eyebrow {
@@ -383,6 +399,7 @@
   .final-cta-description {
     margin: 22px 0 28px;
     font-size: 15px;
+    line-height: 1.8;
   }
 
   .final-cta-actions {
@@ -393,6 +410,7 @@
   .final-cta-actions a {
     width: 100%;
     min-height: 58px;
+    font-size: 14px;
   }
 
   .final-cta-location {
