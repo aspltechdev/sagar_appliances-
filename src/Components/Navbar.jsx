@@ -538,10 +538,10 @@ export default function Navbar() {
               className="sagar-nav-item sagar-range-link"
             >
               Our Range
-              <FaChevronDown className="sagar-dropdown-icon" />
+              {/* <FaChevronDown className="sagar-dropdown-icon" /> */}
             </a>
 
-            <div className="sagar-range-dropdown">
+            {/* <div className="sagar-range-dropdown">
 
               <div className="sagar-range-header">
                 <span className="sagar-dropdown-eyebrow">
@@ -583,7 +583,7 @@ export default function Navbar() {
                 <FaArrowRight />
               </a>
 
-            </div>
+            </div> */}
           </div>
 
           {/* BRANDS, GALLERY, TESTIMONIALS, VISIT STORE, CONTACT */}
