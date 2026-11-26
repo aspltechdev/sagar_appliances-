@@ -37,7 +37,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 
 
-import Navbar from "./Components/Navbar"
+import Navbar from "./Components/Navbar";
 import Home from "./Components/Pages/Home";
 
 import "./App.css";
