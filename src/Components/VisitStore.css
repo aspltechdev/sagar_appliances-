@@ -1,4 +1,3 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap");
 
 .sagar-visit-section {
@@ -26,11 +25,14 @@
   gap: 55px;
 }
 
-/* SHOWROOM IMAGE */
+/* SHOWROOM IMAGE - SQUARE */
 
-.sagar-visit-image {
+.sagar-visit-image,
+.sagar-visit-image-square {
   position: relative;
-  height: 390px;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* ✅ SQUARE - was height: 390px */
+  height: auto;
   overflow: hidden;
   border: 2px solid #d6ad6b;
   border-radius: 25px;
@@ -39,11 +41,12 @@
 }
 
 .sagar-visit-image img {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 1 / 1 !important;
   display: block;
-  object-fit: cover;
-  object-position: center;
+  object-fit: cover !important;
+  object-position: center !important;
   transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
@@ -296,8 +299,11 @@
     gap: 30px;
   }
 
-  .sagar-visit-image {
-    height: 340px;
+  /* ✅ Was height: 340px - now square */
+  .sagar-visit-image,
+  .sagar-visit-image-square {
+    aspect-ratio: 1 / 1;
+    height: auto;
   }
 
   .sagar-visit-content h2 {
@@ -357,8 +363,11 @@
     gap: 25px;
   }
 
-  .sagar-visit-image {
-    height: 230px;
+  /* ✅ Was height: 230px - now square on mobile also */
+  .sagar-visit-image,
+  .sagar-visit-image-square {
+    aspect-ratio: 1 / 1;
+    height: auto;
     border-radius: 16px;
   }
 
