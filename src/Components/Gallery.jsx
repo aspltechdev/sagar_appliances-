@@ -357,11 +357,11 @@ import {
 } from "react-icons/fa";
 
 import "./Gallery.css";
-import g1 from "../assets/g1.png";
-import g2 from "../assets/g2.png";
-import g3 from "../assets/g3.png";
-import g4 from "../assets/g4.png";
-import g5 from "../assets/g5.png";
+import g1 from "../assets/g6.png";
+import g2 from "../assets/g7.png";
+import g3 from "../assets/g8.png";
+import g4 from "../assets/g9.png";
+import g5 from "../assets/g10.png";
 
 const galleryItems = [
   {
@@ -369,7 +369,7 @@ const galleryItems = [
     title: "Our Showroom",
     subtitle: "Visit our spacious and modern showroom",
     category: "Showroom",
-    image: g4,
+    image: g2,
     size: "large",
     icon: FaStore,
   },
@@ -387,7 +387,7 @@ const galleryItems = [
     title: "Mobiles",
     subtitle: "Latest smartphones and accessories",
     category: "Mobiles",
-    image: g5,
+    image: g3,
     size: "medium",
     icon: FaMobileAlt,
   },
@@ -396,7 +396,7 @@ const galleryItems = [
     title: "Showroom Experience",
     subtitle: "Explore our thoughtfully arranged product displays",
     category: "Showroom",
-    image: g3,
+    image: g4,
     size: "medium",
     icon: FaStore,
   },
@@ -405,7 +405,7 @@ const galleryItems = [
     title: "Product Displays",
     subtitle: "Experience before you buy",
     category: "Products",
-    image: g2,
+    image: g5,
     size: "medium",
     icon: FaTv,
   },

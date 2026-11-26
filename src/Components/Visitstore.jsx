@@ -12,7 +12,7 @@ import {
   Gift,
 } from "lucide-react";
 import "./VisitStore.css";
-import visit from "../assets/visit.png";
+import visit from "../assets/pp.png";
 
 const storeAddress =
   "120, Kamaraj Salai, Next to Balaji Theatre, Puducherry - 605 013";

@@ -198,7 +198,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import "./WhyChooseSagar.css";
-import w1 from "../assets/w1.png";
+import w1 from "../assets/w2.png";
 
 const trustFeatures = [
   {
