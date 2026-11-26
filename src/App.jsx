@@ -37,10 +37,11 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { FaWhatsapp } from "react-icons/fa";
 
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+
 import Home from "./Components/Pages/Home";
 
 import "./App.css";
+import Footer from "./Components/Footer";
 
 export default function App() {
   const location = useLocation();
